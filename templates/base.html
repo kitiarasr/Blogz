@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <style>
+            .blogpost {
+                width: 200px;
+                height: 200px;
+            }
+            .blogposttitle {
+                display: block;
+                text-align: left;
+            }
+        </style>
+    </head>
+<body>
+    <div>
+        <p><a href="/blog">Main Blog Page</a>
+        <span style="display:inline-block; padding-left:1%;"> <a href="/newpost">Add a Blog Entry</a> </span></p> 
+    </div>
+    {% with messages = get_flashed_messages(with_categories=True) %} <!-- get_flashed_messages takes in the messages from the app route
+        #=leading to this html template, and you can use the list passed in from the method get_flashed messages
+        Once page is rendered, when you use get_flashed_messages inside rendered template, this erases content from session-->
+        <ul>
+        {% for category, message in messages %} <!-- category,message is a tuple; category should be first argument, message second -->
+           <li class="{{category}}"> {{message}} </li>
+        {% endfor %}
+        </ul>
+    {% endwith %}
+
+    {% block content %}
+  
+    {% endblock %}
+
+</body>
+</html>

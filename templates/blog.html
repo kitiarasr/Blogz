@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center;  padding-top: 20px;">
+    <h1>Build a Blog</h1>
+</div>
+
+
+{% if posts|length == 0 %}
+<p>No tasks yet</p>
+{% else %}
+    <ul>
+        {% for post in posts %}
+        <hr>
+        <li>
+          <!-- <input type="hidden" name="post-id" value={{posts.id}} /> -->
+          <h2> <span style="display:inline-block; padding-left:1%;"> <a href="/view?id={{post.id}}">{{ post.title }}</a> </span> </h2> 
+          <span style="display:inline-block; padding-left:1%;">{{ post.body }}</a> </span>             
+        </li>
+        <hr>
+        {% endfor %}
+    </ul>
+
+{% endif %}
+
+
+{% endblock %}
