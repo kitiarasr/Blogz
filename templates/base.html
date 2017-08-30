@@ -16,7 +16,11 @@
 <body>
     <div>
         <p><a href="/blog">Main Blog Page</a>
+        <span style="display:inline-block; padding-left:1%;"> <a href="/home">Home</a> </span></p> 
         <span style="display:inline-block; padding-left:1%;"> <a href="/newpost">Add a Blog Entry</a> </span></p> 
+        <span style="display:inline-block; padding-right50%;"><a href="/login">login</a> </span></p> 
+        <span style="display:inline-block; padding-right:50%;"><a href="/logout">logout</a> </span></p> 
+
     </div>
     {% with messages = get_flashed_messages(with_categories=True) %} <!-- get_flashed_messages takes in the messages from the app route
         #=leading to this html template, and you can use the list passed in from the method get_flashed messages

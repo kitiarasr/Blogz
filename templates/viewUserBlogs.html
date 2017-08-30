@@ -2,22 +2,20 @@
 
 {% block content %}
 <div style="text-align: center;  padding-top: 20px;">
-    <h1>blog posts!</h1>
+    <h1>blog posts for user!</h1>
 </div>
 
 
-{% if blogs|length == 0 %}
+{% if all_blogs|length == 0 %}
 <p>No tasks yet</p>
 {% else %}
     <ul>
-        {% for blog in blogs %}
+        {% for blog in all_blogs %}
         <hr>
         <li>
           <!-- <input type="hidden" name="blog-id" value={{blog.id}} /> -->
           <h2> <span style="display:inline-block; padding-left:1%;"> <a href="/view?id={{blog.id}}">{{ blog.title }}</a> </span> </h2> 
-          <span style="display:inline-block; padding-left:1%;">{{ blog.body }}</a> </span>  
-          <h2> <span style="display:inline-block; padding-left:1%;"> <a href="/viewUserBlogs?id={{blog.owner.id}}">{{ blog.owner.username }}</a> </span> </h2>             
-        
+          <span style="display:inline-block; padding-left:1%;">{{ blog.body }}</a> </span>             
         </li>
         <hr>
         {% endfor %}
